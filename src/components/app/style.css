@@ -1,0 +1,40 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-green-bg: #ddffe3;
+  --color-green-100: #b3ffc3;
+  --color-green-200: #72ff89;
+  --color-green-300: #5bff8c;
+  --color-green-400: #2de254;
+  --color-green-500: #18f323;
+  --color-gray-bg: #eeeeee;
+  --color-gray-100: #cccccc;
+  --color-gray-200: #999999;
+  --color-gray-300: #666666;
+  --container-width: 1000px;
+  --font-family: 'Poppins', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: var(--font-family);
+  text-rendering: optimizeSpeed;
+  background-color: var(--color-green-bg);
+}
