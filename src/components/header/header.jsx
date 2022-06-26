@@ -16,6 +16,7 @@ const Header = () => {
     if (!searchQuery) return;
     setIsLoader(true);
     await http.loadAll(searchQuery, { page: '1' }, handleResponse);
+    console.log(mainList);
   }
 
   const handleResponse = (response) => {

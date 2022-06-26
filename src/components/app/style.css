@@ -23,6 +23,28 @@
   box-sizing: border-box;
 }
 
+/* SCROLL */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--color-green-400) transparent;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-green-400);
+  border-radius: 2px;
+  border: 1px solid transparent;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -34,7 +56,9 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  overflow-y: overlay;
   font-family: var(--font-family);
   text-rendering: optimizeSpeed;
   background-color: var(--color-green-bg);
+  padding-bottom: 10px;
 }

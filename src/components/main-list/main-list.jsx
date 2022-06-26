@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/context";
 import { Loader } from "../common/common";
+import Card from "../card/card";
 import "./style.css";
 
 const MainList = () => {
@@ -17,13 +18,13 @@ const MainList = () => {
 
   return (
     <>
-      <ul className={`movie-list ${isLoader ? 'no-scroll' : ''}`}>
+      <ul className="movie-list">
         {
           !mainList
             ? ''
             : responseError
               ? <h1>{responseError}</h1>
-              : 'Ok.'
+              : mainList.map(item => <Card item={item} key={item.imdbID} />)
         }
       </ul>
       {
