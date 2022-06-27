@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { AppContext } from "../../context/context";
+import Router from "../../router/router";
 import { scroll } from "../../services/services";
+import { Modal } from "../common/common";
 import Header from "../header/header";
-import MainList from "../main-list/main-list";
 import "./style.css";
 
 const App = () => {
@@ -10,6 +11,7 @@ const App = () => {
   const [responseError, setResponseError] = useState(null);
   const [isLoader, setIsLoader] = useState(false);
   const [isModal, setIsModal] = useState(false);
+  const [modalId, setModalId] = useState(null);
 
   useEffect(() => {
     if (isLoader || isModal) scroll.off();
@@ -24,12 +26,18 @@ const App = () => {
     <AppContext.Provider value={{
       mainList, setMainList,
       responseError, setResponseError,
-      isLoader, setIsLoader
+      isLoader, setIsLoader,
+      isModal, setIsModal,
+      modalId, setModalId
     }}>
-      <div className="scroll-container">
+      <div className={!isModal
+        ? "blur-container no-blur" : "blur-container"}>
         <Header />
-        <MainList />
+        <Router />
       </div>
+      {
+        isModal ? <Modal /> : null
+      }
     </AppContext.Provider>
   )
 }

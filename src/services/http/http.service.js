@@ -6,6 +6,11 @@ class Http {
     await this._fetchGet(url).then(callback)
   }
 
+  async loadOne(id, callback) {
+    let url = this._getUrl({i: id, plot: 'full'});
+    await this._fetchGet(url).then(callback)
+  }
+
   async _fetchGet(url) {
     return fetch(url, { method: 'GET' })
       .then(this._parseJSON)

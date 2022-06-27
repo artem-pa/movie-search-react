@@ -1,11 +1,24 @@
-import noImage from "../../assets/no-image.png";
+import { useContext } from "react";
+import { AppContext } from "../../context/context";
 import { Button } from "../common/common";
+import noImage from "../../assets/no-image.png";
 import "./style.css";
+
 
 const Card = ({ item }) => {
 
+  const {
+    mainList, setMainList,
+    responseError, setResponseError,
+    isLoader, setIsLoader,
+    isModal, setIsModal,
+    setModalId
+  } = useContext(AppContext);
+
   const handleClick = () => {
-    console.log(item.imdbID)
+    console.log(item.imdbID);
+    setIsModal(true);
+    setModalId(item.imdbID);
   }
 
   return (

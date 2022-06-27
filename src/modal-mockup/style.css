@@ -1,0 +1,22 @@
+.mockup .modal__poster {
+  background-color: var(--color-gray-200);
+}
+
+.mockup .about__writer::after,
+.mockup .about__director::after,
+.mockup .about__actors::after,
+.mockup .about__boxOffice::after,
+.mockup .about__awards::after,
+.mockup .about__ratings li {
+  content: '';
+  width: 100px;
+  height: 12px;
+  display: inline-block;
+  background-color: var(--color-gray-200);
+}
+
+.mockup .about__ratings li {
+  display: block;
+  width: 200px;
+  margin-bottom: 12px;
+}

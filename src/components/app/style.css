@@ -60,5 +60,17 @@ body {
   font-family: var(--font-family);
   text-rendering: optimizeSpeed;
   background-color: var(--color-green-bg);
-  padding-bottom: 10px;
+}
+
+.blur-container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  filter: blur(10px);
+  transition: 0.5s;
+  padding: 10px 0;
+}
+
+.no-blur {
+  filter: none;
 }
