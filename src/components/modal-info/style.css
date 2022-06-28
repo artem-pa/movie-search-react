@@ -26,6 +26,10 @@
   overflow-y: auto;
 }
 
+.modal__about::-webkit-scrollbar {
+  width: 0px;
+}
+
 .about .about__title {
   height: 4rem;
   margin: 0 0 10px;
@@ -36,6 +40,18 @@
   background-color: #ccc;
   font-size: 1.2rem;
   font-weight: bold;
+  position: sticky;
+  top: 0;
+}
+
+.about__title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  height: 20px;
+  width: 100%;
+  /* background-color: white; */
+  background: linear-gradient(180deg, white 40%, transparent);
 }
 
 .about__info {

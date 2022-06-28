@@ -53,14 +53,3 @@
   top: 10px;
   color: red;
 }
-
-.show-more {
-  display: block;
-  margin: 20px auto 10px;
-  width: 200px;
-  font-size: 20px;
-}
-
-.show-more.hide {
-  display: none;
-}

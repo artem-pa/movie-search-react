@@ -1,34 +1,41 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AppContext } from "../../context/context";
 import { Button } from "../common/common";
 import { http } from "../../services/services";
 import "./style.css";
 
 const Header = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  
   const {
+    searchQuery, setSearchQuery,
     mainList, setMainList,
     responseError, setResponseError,
-    isLoader, setIsLoader
+    isLoader, setIsLoader,
+    pageState, setPageState
   } = useContext(AppContext)
 
   const handleSearch = async () => {
     if (!searchQuery) return;
     setIsLoader(true);
     await http.loadAll(searchQuery, { page: '1' }, handleResponse);
-    console.log(mainList);
   }
 
   const handleResponse = (response) => {
     if (response.Error) {
       setResponseError(getError(response.Error));
-      setMainList([]);
+      setMainList(null);
       setIsLoader(false);
       return;
     }
     setResponseError(null);
     setMainList(response.Search);
+    setPageState({ all: getPages(response.totalResults), current: 1 })
     setIsLoader(false);
+  }
+
+  const getPages = (allCount) => {
+    if (allCount <= 10) return 1;
+    return Math.ceil(allCount / 10);
   }
 
   const getError = (error) => {
@@ -58,6 +65,7 @@ const Header = () => {
       />
 
       <Button
+        attr={{ disabled: !searchQuery }}
         className="search__btn"
         value="Search"
         onClick={handleSearch}

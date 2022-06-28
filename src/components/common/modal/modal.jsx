@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../../../context/context';
 import { http } from '../../../services/services';
-import ModalMockup from '../../../modal-mockup/modal-mockup';
+import ModalMockup from '../../modal-mockup/modal-mockup';
 import ModalInfo from '../../modal-info/modal-info';
 import './style.css';
 

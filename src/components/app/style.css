@@ -67,7 +67,7 @@ body {
   height: 100vh;
   position: absolute;
   filter: blur(10px);
-  transition: 0.5s;
+  transition: 0.3s;
   padding: 10px 0;
 }
 
