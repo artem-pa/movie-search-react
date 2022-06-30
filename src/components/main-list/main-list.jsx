@@ -4,11 +4,13 @@ import { Button, Loader } from "../common/common";
 import Card from "../card/card";
 import { http } from "../../services/services";
 import "./style.css";
+import Header from "../header/header";
 
 const MainList = () => {
   const {
     responseError,
     isLoader, setIsLoader,
+    isModal,
     pageState, setPageState,
     mainList, setMainList,
     searchQuery
@@ -28,14 +30,13 @@ const MainList = () => {
   }
 
   return (
-    <>
+    <div className={isModal ? "blur-container" : "blur-container no-blur"}>
+      <Header />
       <ul className="movie-list">
         {
-          !mainList
-            ? ''
-            : responseError
-              ? <h1>{responseError}</h1>
-              : mainList.map(item => <Card item={item} key={item.imdbID} />)
+          !mainList || responseError
+            ? <h1>{responseError}</h1>
+            : mainList.map(item => <Card item={item} key={item.imdbID} />)
         }
 
         {
@@ -55,8 +56,7 @@ const MainList = () => {
       {
         isLoader ? <Loader /> : ''
       }
-
-    </>
+    </div>
   )
 }
 

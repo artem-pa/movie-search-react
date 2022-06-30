@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
 import { AppContext } from "../../context/context";
-import Router from "../../router/router";
 import { scroll } from "../../services/services";
-import { Modal } from "../common/common";
-import Header from "../header/header";
+import Router from "../../router/router";
 import "./style.css";
 
 const App = () => {
@@ -13,7 +12,7 @@ const App = () => {
   const [isLoader, setIsLoader] = useState(false);
   const [isModal, setIsModal] = useState(false);
   const [modalId, setModalId] = useState(null);
-  const [pageState, setPageState] = useState({all: 0, current: 0});
+  const [pageState, setPageState] = useState({ all: 0, current: 0 });
   const [currentList, setCurrentList] = useState(null);
 
   useEffect(() => {
@@ -36,14 +35,9 @@ const App = () => {
       pageState, setPageState,
       currentList, setCurrentList
     }}>
-      <div className={!isModal
-        ? "blur-container no-blur" : "blur-container"}>
-        <Header />
+      <BrowserRouter>
         <Router />
-      </div>
-      {
-        isModal ? <Modal /> : null
-      }
+      </BrowserRouter>
     </AppContext.Provider>
   )
 }

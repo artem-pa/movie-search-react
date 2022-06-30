@@ -5,7 +5,10 @@ import ModalMockup from '../../modal-mockup/modal-mockup';
 import ModalInfo from '../../modal-info/modal-info';
 import './style.css';
 
+import {useNavigate} from "react-router-dom";
+
 const Modal = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState(null);
   const {
     isModal, setIsModal, 
@@ -21,6 +24,7 @@ const Modal = () => {
   }, [])
 
   const closeModal = () => {
+    navigate(-1);
     setIsModal(false);
   }
 

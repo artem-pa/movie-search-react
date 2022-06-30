@@ -3,22 +3,22 @@ import { AppContext } from "../../context/context";
 import { Button } from "../common/common";
 import noImage from "../../assets/no-image.png";
 import "./style.css";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const Card = ({ item }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const {
-    mainList, setMainList,
-    responseError, setResponseError,
-    isLoader, setIsLoader,
-    isModal, setIsModal,
-    setModalId
+    setIsModal, setModalId
   } = useContext(AppContext);
 
   const handleClick = () => {
     console.log(item.imdbID);
     setIsModal(true);
     setModalId(item.imdbID);
+    navigate(`./modal/${item.imdbID}`, {state: {background: location}})
   }
 
   return (

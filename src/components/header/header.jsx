@@ -19,10 +19,11 @@ const Header = () => {
     setIsLoader(true);
     await http.loadAll(searchQuery, { page: '1' }, handleResponse);
   }
-
+  
   const handleResponse = (response) => {
     if (response.Error) {
       setResponseError(getError(response.Error));
+      setPageState({all: 0, current: 0})
       setMainList(null);
       setIsLoader(false);
       return;
@@ -41,7 +42,7 @@ const Header = () => {
   const getError = (error) => {
     switch (error) {
       case 'Too many results.':
-        return 'Too many results.';
+        return 'Too short search query.';
       case 'Movie not found!':
         return 'Movies and products not found!';
       default:

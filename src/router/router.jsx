@@ -1,19 +1,31 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Modal } from "../components/common/common";
-import Header from "../components/header/header";
 import MainList from "../components/main-list/main-list";
 
-const Router = () => (
-  <BrowserRouter>
-    
-    <Routes>
-      <Route path="/" element={<MainList />} />
-      <Route path="/omdb-item" element={<h1>Product</h1>} >
-        <Route path=":itemId" element={<h1>Product...</h1>} />
-      </Route>
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
-  </BrowserRouter>
-)
+
+
+const Router = () => {
+  const location = useLocation();
+  const background = location.state && location.state.background;
+
+  return (
+    <>
+      <Routes location={background || location}>
+        <Route path="/" element={<MainList />}>
+          <Route path="modal/:id" element={<Modal />} />
+        </Route>
+        <Route path="my-list" element={<h1>My list</h1>} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+      {
+        background && (
+          <Routes>
+            <Route path="modal/:id" element={<Modal />} />
+          </Routes>
+        )
+      }
+    </>
+  )
+}
 
 export default Router;
