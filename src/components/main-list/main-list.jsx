@@ -1,20 +1,24 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
+import { Button, Loader, Card, Header } from "../components";
 import { AppContext } from "../../context/context";
-import { Button, Loader } from "../common/common";
-import Card from "../card/card";
-import { http } from "../../services/services";
+import { http, storage } from "../../services/services";
 import "./style.css";
-import Header from "../header/header";
 
 const MainList = () => {
   const {
     responseError,
     isLoader, setIsLoader,
-    isModal,
+    isModal, searchQuery,
     pageState, setPageState,
     mainList, setMainList,
-    searchQuery
+    myList, setMyList
+    
   } = useContext(AppContext);
+
+  useEffect(() => {
+    setMyList(storage.getStorage());
+    console.log(myList);
+  }, [])
 
   const handleShowMore = async () => {
     if (!mainList) return;

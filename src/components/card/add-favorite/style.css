@@ -1,0 +1,41 @@
+.add {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  --color: var(--color-gray-200);
+  outline: 5px solid var(--color);
+  color: var(--color);
+  font-weight: bold;
+  line-height: 50px;
+  outline-offset: -2px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.2s;
+  background: radial-gradient(rgb(0, 0, 0), var(--color));  
+}
+.add:active {
+  transform: scale(0.8);
+}
+.add::after {
+  content: 'add';
+}
+.add:hover {
+  --color: #11ff11;
+}
+
+.add.added {
+  --color: #11ff11;
+}
+.add.added::after {
+  content: '✓';
+}
+.add.added:hover {
+  --color: #ff1111;
+}
+.add.added:hover::after {
+  content: 'del';
+}

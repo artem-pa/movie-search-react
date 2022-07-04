@@ -1,9 +1,10 @@
 import { useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Button } from "../components";
 import { AppContext } from "../../context/context";
-import { Button } from "../common/common";
 import noImage from "../../assets/no-image.png";
 import "./style.css";
-import { useLocation, useNavigate } from "react-router-dom";
+import AddFavorite from "./add-favorite/add-favorite";
 
 
 const Card = ({ item }) => {
@@ -28,6 +29,7 @@ const Card = ({ item }) => {
           alt={item.Title}
           src={item.Poster !== 'N/A' ? item.Poster : noImage}
         />
+        <AddFavorite id={item.imdbID}/>
       </picture>
       <p className="movie__title">{item.Title}</p>
       <p className="movie__type">{item.Type}</p>

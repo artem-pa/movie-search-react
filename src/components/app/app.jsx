@@ -13,7 +13,7 @@ const App = () => {
   const [isModal, setIsModal] = useState(false);
   const [modalId, setModalId] = useState(null);
   const [pageState, setPageState] = useState({ all: 0, current: 0 });
-  const [currentList, setCurrentList] = useState(null);
+  const [myList, setMyList] = useState(null);
 
   useEffect(() => {
     if (isLoader || isModal) scroll.off();
@@ -33,7 +33,7 @@ const App = () => {
       isModal, setIsModal,
       modalId, setModalId,
       pageState, setPageState,
-      currentList, setCurrentList
+      myList, setMyList
     }}>
       <BrowserRouter>
         <Router />

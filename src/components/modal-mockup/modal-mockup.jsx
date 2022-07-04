@@ -1,4 +1,4 @@
-import { Loader } from "../common/common";
+import { Loader } from "../components";
 import "./style.css";
 
 const ModalMockup = () => (

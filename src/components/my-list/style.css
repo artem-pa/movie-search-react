@@ -1,0 +1,33 @@
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 30px;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 10px 0;
+  list-style: none;
+  position: relative;
+}
+
+.main-list__footer {
+  height: 10px;
+  position: absolute;
+  bottom: -70px;
+  width: 100%;
+}
+
+.show-more {
+  display: block;
+  margin: 20px auto 10px;
+  width: 200px;
+  font-size: 20px;
+  position: absolute;
+  bottom: -65px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.show-more.hide {
+  display: none;
+}
+

@@ -1,17 +1,16 @@
 import { useContext, useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import { ModalInfo, ModalMockup } from '../../components';
 import { AppContext } from '../../../context/context';
 import { http } from '../../../services/services';
-import ModalMockup from '../../modal-mockup/modal-mockup';
-import ModalInfo from '../../modal-info/modal-info';
 import './style.css';
 
-import {useNavigate} from "react-router-dom";
 
 const Modal = () => {
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   const {
-    isModal, setIsModal, 
+    isModal, setIsModal,
     modalId, setModalId,
     setIsLoader
   } = useContext(AppContext);

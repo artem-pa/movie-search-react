@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   max-width: var(--container-width);
-  margin: 0px auto 20px;
+  margin: 0px auto 10px;
   position: relative;
 }
 
@@ -33,4 +33,22 @@ input:focus {
   width: 200px;
   position: absolute;
   right: 0;
+}
+
+.search-header {
+  width: var(--container-width);
+  text-align: center;
+  margin: 0 auto 10px;
+}
+
+.search-link {
+  display: block;
+  margin-top: 5px;
+  font-size: 2em;
+  color: var(--color-gray-300);
+  text-decoration: none;
+}
+
+.search-link:hover {
+  text-decoration: underline;
 }

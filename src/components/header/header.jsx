@@ -1,11 +1,12 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../components";
 import { AppContext } from "../../context/context";
-import { Button } from "../common/common";
 import { http } from "../../services/services";
 import "./style.css";
 
 const Header = () => {
-  
+
   const {
     searchQuery, setSearchQuery,
     mainList, setMainList,
@@ -19,11 +20,11 @@ const Header = () => {
     setIsLoader(true);
     await http.loadAll(searchQuery, { page: '1' }, handleResponse);
   }
-  
+
   const handleResponse = (response) => {
     if (response.Error) {
       setResponseError(getError(response.Error));
-      setPageState({all: 0, current: 0})
+      setPageState({ all: 0, current: 0 })
       setMainList(null);
       setIsLoader(false);
       return;
@@ -51,27 +52,31 @@ const Header = () => {
   }
 
   return (
-    <form className="search" onKeyDown={(e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault()
-        handleSearch()
-      }
-    }}>
-      <input
-        type="search"
-        className="search__area"
-        placeholder="Write name of movie, series, anime etc."
-        value={searchQuery}
-        onChange={e => setSearchQuery(e.target.value)}
-      />
+    <>
+      <h1 className="search-header">LET'S SEARCH SOME MEDIA PRODUCT</h1>
+      <form className="search" onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault()
+          handleSearch()
+        }
+      }}>
+        <input
+          type="search"
+          className="search__area"
+          placeholder="Write name of movie, series, anime etc."
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+        />
 
-      <Button
-        attr={{ disabled: !searchQuery }}
-        className="search__btn"
-        value="Search"
-        onClick={handleSearch}
-      />
-    </form>
+        <Button
+          attr={{ disabled: !searchQuery }}
+          className="search__btn"
+          value="Search"
+          onClick={handleSearch}
+        />
+      <Link className="search-link" to="/my-list" >My List</Link>
+      </form>
+    </>
   )
 }
 
