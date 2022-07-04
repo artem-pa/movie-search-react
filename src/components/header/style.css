@@ -43,8 +43,9 @@ input:focus {
 
 .search-link {
   display: block;
+  width: max-content;
   margin-top: 5px;
-  font-size: 2em;
+  font-size: 1.5em;
   color: var(--color-gray-300);
   text-decoration: none;
 }

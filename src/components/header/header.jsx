@@ -9,10 +9,8 @@ const Header = () => {
 
   const {
     searchQuery, setSearchQuery,
-    mainList, setMainList,
-    responseError, setResponseError,
-    isLoader, setIsLoader,
-    pageState, setPageState
+    setMainList, setResponseError,
+    setIsLoader, setPageState
   } = useContext(AppContext)
 
   const handleSearch = async () => {
@@ -74,7 +72,7 @@ const Header = () => {
           value="Search"
           onClick={handleSearch}
         />
-      <Link className="search-link" to="/my-list" >My List</Link>
+      <Link className="search-link" to="/my-list" >→ My List</Link>
       </form>
     </>
   )

@@ -1,4 +1,5 @@
 import noImage from "../../assets/no-image.png";
+import { AddFavorite } from "../components";
 import "./style.css";
 
 const ModalInfo = ({ data }) => {
@@ -6,6 +7,7 @@ const ModalInfo = ({ data }) => {
     <div className="modal__body">
       <picture className="modal__poster">
         <img src={data.Poster === 'N/A' ? noImage : data.Poster} alt={data.Title} />
+        <AddFavorite item={data} />
       </picture>
       <div className="modal__about about">
         <p className="about__title">{data.Title}</p>

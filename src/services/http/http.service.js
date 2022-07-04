@@ -8,7 +8,12 @@ class Http {
 
   async loadOne(id, callback) {
     let url = this._getUrl({i: id, plot: 'full'});
-    await this._fetchGet(url).then(callback)
+    await this._fetchGet(url).then(callback);
+  }
+
+  async loadOneShort (id, callback) {
+    let url = this._getUrl({i: id, plot: 'short'});
+    await this._fetchGet(url).then(callback);
   }
 
   async _fetchGet(url) {

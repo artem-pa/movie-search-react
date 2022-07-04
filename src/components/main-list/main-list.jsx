@@ -17,7 +17,6 @@ const MainList = () => {
 
   useEffect(() => {
     setMyList(storage.getStorage());
-    console.log(myList);
   }, [])
 
   const handleShowMore = async () => {

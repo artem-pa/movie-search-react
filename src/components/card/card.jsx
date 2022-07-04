@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Button } from "../components";
+import { Button, AddFavorite } from "../components";
 import { AppContext } from "../../context/context";
 import noImage from "../../assets/no-image.png";
 import "./style.css";
-import AddFavorite from "./add-favorite/add-favorite";
 
 
 const Card = ({ item }) => {
@@ -19,7 +18,7 @@ const Card = ({ item }) => {
     console.log(item.imdbID);
     setIsModal(true);
     setModalId(item.imdbID);
-    navigate(`./modal/${item.imdbID}`, {state: {background: location}})
+    navigate(`./modal/${item.imdbID}`, { state: { background: location } })
   }
 
   return (
@@ -29,7 +28,7 @@ const Card = ({ item }) => {
           alt={item.Title}
           src={item.Poster !== 'N/A' ? item.Poster : noImage}
         />
-        <AddFavorite id={item.imdbID}/>
+        <AddFavorite item={item} />
       </picture>
       <p className="movie__title">{item.Title}</p>
       <p className="movie__type">{item.Type}</p>
