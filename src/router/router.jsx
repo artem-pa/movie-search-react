@@ -25,7 +25,7 @@ const Router = () => {
         <Route path="my-list" element={<MyList />}>
           <Route path="modal/:id" element={<Modal />} />
         </Route>
-        <Route path="*" element={<Navigate to="/" />} />
+        {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>
       {
         background && (
